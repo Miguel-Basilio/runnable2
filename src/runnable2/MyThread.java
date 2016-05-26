@@ -1,20 +1,32 @@
 package runnable2;
 
 public class MyThread implements Runnable {
-	private double counter;
+	private int count=0;
+	private int max=0;
+	private int randomNumber;
 	
-	
-	public MyThread (double counter){
-		this.counter  = counter;
+	public MyThread(int max){
+	this.max = max;
 	}
-		
+	public void Throw(){
+		count++;
+		randomNumber = (int)(Math.random()*6)+1;
+	}
+	public int getRandomNumber(){
+		return randomNumber;
+	}
+	public int getCount(){
+		return count;
+	}
+	
 		@Override
 	public void run() {
-	int sum = 0;
-			for (int i=1; i< 1+(int)(Math.random()*6); i++){
-					sum += i;
-	}
-
-	System.out.println("dice number  " +  sum);
-}
+	String x = Thread.currentThread().getName();
+			for (int i=0; i< max; i++){
+					
+			Throw();
+			System.out.printf("Thread: %s, dice is: %d, Count is: %d", x, randomNumber, count);
+			System.out.println("");
+			}
+		}
 }
