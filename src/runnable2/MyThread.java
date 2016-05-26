@@ -5,8 +5,8 @@ public class MyThread implements Runnable {
 	private int max=0;
 	private int randomNumber;
 	
-	public MyThread(int max){
-	this.max = max;
+	public MyThread(long l){
+	this.max = (int) l;
 	}
 	public void Throw(){
 		count++;
@@ -25,7 +25,7 @@ public class MyThread implements Runnable {
 			for (int i=0; i< max; i++){
 					
 			Throw();
-			System.out.printf("Thread: %s, dice is: %d, Count is: %d", x, randomNumber, count);
+			System.out.printf("Thread: %s, dice #: %d, Count is: %d", x, randomNumber, count);
 			System.out.println("");
 			}
 		}
